@@ -1,0 +1,276 @@
+/*!
+ * Copyrighht 2021 to present, Antonio Malcolm.
+ * All rights reserved.
+ *
+ * This source code file is a part of protoreaction (A.K.A., "protoReaction").
+ *
+ * This source code is licensed under the BSD 3-Clause license,
+ * and is subject to the terms of the BSD 3-Clause license,
+ * found in the LICENSE file, in the root directory of this project.
+ * If a copy of the BSD 3-Clause license cannot be found,
+ * as part of this project, you can obtain one, at:
+ * https://opensource.org/licenses/BSD-3-Clause
+ */
+
+@use 'asset/style/transitions';
+  
+.healthCheck {
+  width: 100%;
+  height: 100%;
+  margin: 6px 0;
+  align-items: center;
+  justify-content: center;
+
+  h1, h2, h3, h4, p, ul {
+    margin: 0 0 10px;
+  }
+
+  header {
+    padding: 16px 0 10px;
+    background-color: #282c34;
+    color: #ffffff;
+
+    h3 {
+      .workspace_header_icon {
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        margin: -.25em 0 0;
+        vertical-align: middle;
+      }
+    }
+
+   > div {
+      width: 75%;
+      margin: 0 auto;
+    }
+  }
+
+  .worth_noting {
+    font-weight: 600;
+  }
+
+  .mere_observation {
+    font-style: italic;
+  }
+
+  .description, .checks {
+    margin: 0 0 18px;
+
+    > div,
+    > section {
+      width: 75%;
+      margin: 0 auto;
+
+      &.loader_check {
+        margin-bottom: 18px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #d0d0d0;
+      }
+    }
+  }
+
+  .description {
+    padding: 16px 0 10px;
+    background-color: #d0d0d0;
+
+    > div {
+      ul > li {
+        padding: 4px 0;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .loader_check > div {
+    display: flex;
+
+    > div {
+      display: inline-flex;
+      flex-direction: column;
+      width: 50%;
+    }
+
+    .font_test {
+      width: 90%;
+      border-radius: 4px;
+      padding: 5px 10px 8px;
+      background-color: #e6e6e6;
+      font-family: BetterEBGaramondRegular, sans-serif;
+      font-size: 1.25em;
+      font-weight: 600;
+    }
+
+    .handsome_text {
+      width: 44%;
+      margin-right: 18px;
+    }
+
+    .handsome_pengn {
+      width: 50%;
+      height: 100%;
+      min-width: 305px;
+      max-width: 463px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px 3px #666666;
+      overflow: hidden;
+
+      > img {
+        @include transitions.fade-in-slow;
+        width: 100%;
+        min-width: 260px;
+      }
+    }
+  }
+
+  .dataFetch_check {
+    .dataFetch_serverInfo {
+      > div {
+        display: inline-flex;
+        flex-direction: column;
+        width: 44%;
+
+        &:first-child {
+          margin-right: 18px;
+        }
+      }
+
+      .dataFetch_url {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .healthCheckDataFetchRequestStatus {
+      @include transitions.fade-in;
+      width: 75%;
+      border-radius: 4px;
+      padding: 8px 5px 7px;
+      margin: 12px auto;
+      background-color: #d0d0d0;
+      font-weight: 600;
+      text-align: center;
+
+      &_error {
+        background-color: #fc9999;
+      }
+
+      &_readying,
+      &_requested {
+        background-color: #bbeffd;
+      }
+
+      &_success {
+        background-color: #a6d9b7;
+      }
+
+      &_timeout {
+        background-color: #e6d178;
+      }
+    }
+
+    .dataCheck_data {
+      &_item {
+         @include transitions.fade-in-slow;
+        height: 82px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        padding: 8px 10px 5px;
+        border-radius: 6px;
+        background-color: #e6e6e6;
+
+        > span {
+          width: 33%;
+
+          &:not(:last-child) {
+            margin-right: 18px;
+          }
+        }
+      }
+
+      &_title,
+      &_descr {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      &_title {
+        text-align: left;
+        font-weight: 600;
+      }
+
+      &_descr {
+        text-align: center;
+        font-style: italic;
+      }
+
+      &_thumb {
+        text-align: right;
+        white-space: nowrap;
+
+        > span {
+          width: 80px;
+          min-width: 80px;
+          height: 65px;
+          line-height: 4em;
+          display: inline-block;
+          border-radius: 4px;
+          overflow: hidden;
+
+          &:not(:last-child) {
+            margin-right: 8px;
+          }
+
+          > img {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  &_preact {
+    header {
+      border-bottom: 5px solid #673ab8;
+
+      h3 {
+        .workspace_header_title {
+          color: #bb9cf4;
+        }
+      }
+    }
+
+    .description {
+      background-color: #bb9cf4;
+    }
+
+    .dataFetch_url > a {
+      color: #673ab8;
+    }
+  }
+
+  &_react {
+    header{
+      border-bottom: 5px solid #538ce9;
+
+      h3 {
+        .workspace_header_title {
+          color: #bbeffd;
+        }
+      }
+    }
+
+    .description {
+      background-color: #bbeffd;
+    }
+
+    .dataFetch_url > a {
+      color: #538ce9;
+    }
+  }
+}

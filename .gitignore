@@ -1,0 +1,41 @@
+# Common Project Files and Directories
+server/srv/*
+!server/srv/README.md
+build/
+test/cache/
+test/output/
+
+
+# NodeJS and Package Manager Files and Directories
+npm-debug.log
+.pnpm-debug.log
+pnpm-debug.log
+node_modules/
+mochawesome-report/
+
+
+# Eclipse Project Files and Directories
+.project
+.tern-project
+.metadata/
+.recommenders/
+.settings/
+
+
+# IntelliJ IDEA Project Files and Directories
+*.iml
+*.ipr
+*.iws
+.idea/
+
+
+# Visual Studio Code Project Files and Directories
+*.code-workspace
+.vscode/
+
+
+# Operating System Files and Directories
+.DS_Store
+._.DS_Store
+/bin/
+lost+found/

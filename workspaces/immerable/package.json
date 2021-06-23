@@ -1,0 +1,68 @@
+{
+  "name": "immerable-record",
+  "version": "1.0.0",
+  "description": "Immerable Record is an immutable record data structure API, which uses pure, vanilla JavaScript objects for deep nesting",
+  "engines-comments": {
+    "node": "using nvm to install and manage node versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm  install --lts",
+    "npm": "using nvm to install and manage npm versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm install-latest-npm"
+  },
+  "engines": {
+    "node": "^14.17.1",
+    "npm": "^6.14.13",
+    "pnpm": "^6.7.6"
+  },
+  "peerDependencies": {
+    "immer": "^9.0.3"
+  },
+  "devDependencies": {
+    "immer": "^9.0.3"
+  },
+  "scripts": {
+    "build:dev": "pnpm run clean:build:dev && cross-env NODE_ENV=development WORKSPACE=immerable ENVIRON=dev webpack --progress --color --config ./config/webpack/webpack-dev.config.js",
+    "build:prod": "pnpm run clean:build:prod && cross-env NODE_ENV=production WORKSPACE=immerable ENVIRON=prod webpack --progress --color --config ./config/webpack/webpack-prod.config.js",
+    "build:release": "pnpm run clean:build && pnpm run build:dev && pnpm run build:prod && node ./task/makeReleaseDist.js",
+    "clean": "pnpm run clean:build && pnpm run clean:dependencies",
+    "clean:all": "pnpm run clean:build && pnpm run clean:dependencies",
+    "clean:build": "rimraf build",
+    "clean:build:cache": "rimraf build/cache",
+    "clean:build:dev": "rimraf build/dist/dev",
+    "clean:build:prod": "rimraf build/cache && rimraf build/dist/prod",
+    "clean:dependencies": "rimraf npm-debug.log && rimraf .pnpm-debug.log && rimraf pnpm-debug.log && rimraf node_modules",
+    "clean:dependency-locks": "rimraf package-lock.json && rimraf pnpm-lock.yaml",
+    "lint": "cross-env WORKSPACE=immerable eslint --config ../../config/test/eslint.config.js --output-file ../../test/output/report/immerable-record/eslint/eslint-report.html --format html --color ../../src",
+    "lint:debug": "cross-env WORKSPACE=immerable eslint --config ../../config/test/eslint.config.js --output-file ../../test/output/report/immerable-record/eslint/eslint-report.html --format html --color --debug ../../src"
+  },
+  "author": {
+    "name": "Antonio Malcolm",
+    "email": "antonio@antoniomalcolm.com",
+    "url": "https://antoniomalcolm.com"
+  },
+  "homepage": "https://github.com/antonio_malcolm/immerable-record",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "url": "git+https://github.com/antonio_malcolm/immerable-record.git",
+    "type": "git",
+    "directory": "workspaces/immerable"
+  },
+  "files": [
+    "build/dist/release",
+    "src",
+    "AUTHORS",
+    "LICENSE"
+  ],
+  "main": "build/dist/release/immerable.immerable-record.js",
+  "keywords": [
+    "copy-on-write",
+    "data",
+    "immer",
+    "immutable",
+    "immutability",
+    "mutable",
+    "reducer",
+    "redux",
+    "redux-saga",
+    "redux-thunk",
+    "state",
+    "store"
+  ]
+}

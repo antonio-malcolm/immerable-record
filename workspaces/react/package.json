@@ -1,0 +1,73 @@
+{
+  "name": "immerable-record-react",
+  "version": "1.0.0",
+  "description": "Built using protoreaction, by Antonio Malcolm",
+  "engines-comments": {
+    "node": "using nvm to install and manage node versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm  install --lts",
+    "npm": "using nvm to install and manage npm versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm install-latest-npm"
+  },
+  "engines": {
+    "node": "^14.17.1",
+    "npm": "^6.14.13",
+    "pnpm": "^6.7.6"
+  },
+  "dependencies-comments": {
+    "scheduler": "Required for react-dom"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "scheduler": "^0.20.2"
+  },
+  "devDependencies-comments": {
+    "eslint-plugin-react-compat": "Ensures React code is compatible with Preact"
+  },
+  "devDependencies": {
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.6.1",
+    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react-compat": "^0.1.7",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "react-devtools-core": "^4.13.0"
+  },
+  "scripts": {
+    "build:dev": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev webpack --progress --color --config ./config/webpack/webpack-dev.config.js",
+    "build:prod": "cross-env NODE_ENV=production WORKSPACE=react ENVIRON=prod webpack --progress --color --config ./config/webpack/webpack-prod.config.js",
+    "build:prod-dev": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod-dev webpack --progress --color --config ./config/webpack/webpack-prod-dev.config.js",
+    "clean": "pnpm run clean:build && pnpm run clean:dependencies",
+    "clean:all": "pnpm run clean:build && pnpm run clean:dependencies",
+    "clean:build": "rimraf build",
+    "clean:build:cache": "rimraf build/cache",
+    "clean:build:dev": "rimraf build/dist/dev",
+    "clean:build:prod": "rimraf build/cache && rimraf build/dist/prod",
+    "clean:build:prod-dev": "rimraf build/cache && rimraf build/dist/prod-dev",
+    "clean:dependencies": "rimraf npm-debug.log && rimraf .pnpm-debug.log && rimraf pnpm-debug.log && rimraf node_modules",
+    "clean:dependency-locks": "rimraf package-lock.json && rimraf pnpm-lock.yaml",
+    "start": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:no-reload": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=false webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:network": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=true SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:no-reload:network": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=false SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:dev": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:dev:no-reload": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=false webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:dev:network": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=true SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:dev:network:no-reload": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=dev SERVER_SHOULD_HOT_RELOAD=false SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:prod": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod SERVER_SHOULD_HOT_RELOAD=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:prod-dev": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod-dev SERVER_SHOULD_HOT_RELOAD=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:prod-dev:no-reload": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod-dev SERVER_SHOULD_HOT_RELOAD=false webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:prod-dev:network": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod-dev SERVER_SHOULD_HOT_RELOAD=true SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "start:prod-dev:network:no-reload": "cross-env NODE_ENV=development WORKSPACE=react ENVIRON=prod-dev SERVER_SHOULD_HOT_RELOAD=false SERVER_SHOULD_NETWORK=true webpack-dashboard -- babel-watch ../../server/startServer.js",
+    "lint": "cross-env WORKSPACE=react eslint --config ../../config/test/eslint.config.js --output-file ../../test/output/report/react/eslint/eslint-report.html --format html --color ../../src",
+    "lint:debug": "cross-env WORKSPACE=react eslint --config ../../config/test/eslint.config.js --output-file ../../test/output/report/react/eslint/eslint-report.html --format html --color --debug ../../src"
+  },
+  "author": {
+    "name": "Antonio Malcolm",
+    "email": "antonio@antoniomalcolm.com",
+    "url": "https://antoniomalcolm.com"
+  },
+  "homepage": "https://github.com/antonio_malcolm/immerable-record",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "url": "git+https://github.com/antonio_malcolm/immerable-record.git",
+    "type": "git",
+    "directory": "workspaces/react"
+  }
+}
