@@ -317,10 +317,10 @@
     "email": "antonio@antoniomalcolm.com",
     "url": "https://antoniomalcolm.com"
   },
-  "homepage": "https://github.com/antonio_malcolm/immerable-record",
+  "homepage": "https://github.com/antonio-malcolm/immerable-record",
   "license": "BSD-3-Clause",
   "repository": {
-    "url": "git+https://github.com/antonio_malcolm/immerable-record.git",
+    "url": "git+https://github.com/antonio-malcolm/immerable-record.git",
     "type": "git"
   }
 }
