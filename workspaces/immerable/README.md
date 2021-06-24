@@ -65,14 +65,13 @@ To begin, we'll create a simple class, which extends the ImmerableRecord class. 
 this sample implementation is ideal, for creating domain objects, with which to divide your Redux state into manageable units of responsibility. This is a _working example_, from a released project:
 
 ```JavaScript
-import { ImmerableRecord } from 'immerable-record';
+import ImmerableRecord from 'immerable-record';
 
 import RequestStatus from 'constant/RequestStatus';
 
-// CLASS EXTENDS ImmerableRecord
+// CLASS EXTENDS ImmerableRecord...
 class HealthCheckStore extends ImmerableRecord {
   constructor() {
-    // SET THE DEFAULT DRAFT...
     super({
       healthCheckData: {},
       healthCheckDataRequestStatus: RequestStatus.UNINITIATED,
@@ -81,66 +80,77 @@ class HealthCheckStore extends ImmerableRecord {
         },
       healthCheckDataUpdateTimestamp: 0
 
-       // CONFIG OBJECT WITH historyLimit ENABLES HISTORY API...
+      // CONFIG OBJECT WITH historyLimit ENABLES HISTORY API...
     }, { historyLimit: 5 });
 
+    // THE USUAL CLASS METHOD BINDERS...
+    this.getHealthCheckData = this.getHealthCheckData.bind(this);
+    this.setHealthCheckData = this.setHealthCheckData.bind(this);
+
+    this.getHealthCheckDataRequestStatus = this.getHealthCheckDataRequestStatus.bind(this);
+    this.setHealthCheckDataRequestStatus = this.setHealthCheckDataRequestStatus.bind(this);
+
     // PREVENT REASSIGNMENT OR EXTENSION, OF THE INITIAL INSTANCE
-    // (Object.seal is fine, too)
-    // ALL SUBSEQUENT INSTANCES / DRAFTS RETURNED, ON UPDATE, ARE ALREADY NON-EXTENSIBLE...
+    // (or, use Object.seal, depending on your use case)
+    //
+    // SUBSEQUENT INSTANCES / DRAFTS RETURNED ARE ALREADY NON-EXTENSIBLE,
+    // WITH OR WITHOUT THIS...
     Object.freeze(this);
   }
 
-  // SAMPLE GETTER WRAPPER METHOD (CLASS METHOD)...
+  // EXAMPLE WRAPPER METHODS (CLASS METHODS)...
+
   getHealthCheckData() {
-    return this.healthCheckData;
+    // EXAMPLE IMMERABLE RECORD .getIn METHOD USAGE...
+    return this.getIn(
+        [ 'healthCheckData' ]
+      );
   };
 
-  // SAMPLE SETTER WRAPPER METHOD (CLASS METHOD)...
   setHealthCheckData(data) {
+    // EXAMPLE IMMERABLE RECORD .setIn METHOD USAGE...
     return this.setIn([ 'healthCheckData' ], data);
   };
 
   getHealthCheckDataRequestStatus() {
-    return this.healthCheckDataRequestStatus;
+    return this.getIn(
+        [ 'healthCheckDataRequestStatus' ]
+      );
   };
 
   setHealthCheckDataRequestStatus(status) {
     return this.setIn([ 'healthCheckDataRequestStatus' ], status);
   };
 
-  // SAMPLE GETTER WRAPPER METHOD (ARROW FUNCTION)...
+  // EXAMPLE WRAPPER METHODS (ARROW FUNCTIONS)...
+
   getHealthCheckDataRequestStatusReason = () => {
-    return this.healthCheckDataRequestStatusReason;
+    return this.getIn(
+        [ 'healthCheckDataRequestStatusReason' ]
+      );
   };
 
-  // SAMPLE SETTER METHOD (ARROW FUNCTION)...
   setHealthCheckDataRequestStatusReason = (status, reason) => {
-
-    // SAMPLE IMMERABLE RECORD .setIn METHOD USAGE...
     return this.setIn(
         [ 'healthCheckDataRequestStatusReason' ],
         { [status]: reason }
       );
   };
 
-  getHealthCheckDataUpdateTimestamp() {
-
-    // SAMPLE IMMERABLE RECORD .getIn METHOD USAGE...
-    // (NOT STRICTLY NECESSARY, AS WE CAN GET BY VANILLA JS DOT NOTAION)...
+  getHealthCheckDataUpdateTimestamp = () => {
     return this.getIn(
-        [ 'healthCheckDataUpdateTimestamp' ],
-        Date.now()
+        [ 'healthCheckDataUpdateTimestamp' ]
       );
   }
 
-  setHealthCheckDataUpdateTimestamp() {
+  setHealthCheckDataUpdateTimestamp = () => {
     return this.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         Date.now()
       );
   }
 
-  resetHealthCheckDataUpdateTimestamp() {
+  resetHealthCheckDataUpdateTimestamp = () => {
     return this.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         0
@@ -168,33 +178,39 @@ let healthCheckStore = new ImmerableRecord({
      // CONFIG OBJECT WITH historyLimit ENABLES HISTORY API...
   }, { historyLimit: 5 });
 
-// SAMPLE GETTER WRAPPER METHOD (CLASS METHOD)...
+// EXAMPLE WRAPPER METHODS (STANDARD FUNCTIONS)...
+
 healthCheckStore.getHealthCheckData = function() {
-    return this.healthCheckData;
+    // EXAMPLE IMMERABLE RECORD .getIn METHOD USAGE...
+    return this.getIn(
+        [ 'healthCheckData' ]
+      );
   };
 
-// SAMPLE SETTER WRAPPER METHOD (CLASS METHOD)...
 healthCheckStore.setHealthCheckData = function(data) {
+    // EXAMPLE IMMERABLE RECORD .setIn METHOD USAGE...
     return this.setIn([ 'healthCheckData' ], data);
   };
 
 healthCheckStore.getHealthCheckDataRequestStatus = function() {
-    return this.healthCheckDataRequestStatus;
+    return this.getIn(
+        [ 'healthCheckDataRequestStatus' ]
+      );
   };
 
 healthCheckStore.setHealthCheckDataRequestStatus = function(status) {
     return this.setIn([ 'healthCheckDataRequestStatus' ], status);
   };
 
-// SAMPLE GETTER WRAPPER METHOD (ARROW FUNCTION)...
+// EXAMPLE GETTER WRAPPER METHODS (ARROW FUNCTION)...
+
 healthCheckStore.getHealthCheckDataRequestStatusReason = () => {
-    return healthCheckStore.healthCheckDataRequestStatusReason;
+    return healthCheckStore.getIn(
+        [ 'healthCheckDataRequestStatusReason' ]
+      );
   };
 
-// SAMPLE SETTER METHOD (ARROW FUNCTION)...
 healthCheckStore.setHealthCheckDataRequestStatusReason = (status, reason) => {
-  
-    // SAMPLE IMMERABLE RECORD .setIn METHOD USAGE...
     return healthCheckStore.setIn(
         [ 'healthCheckDataRequestStatusReason' ],
         { [status]: reason }
@@ -202,32 +218,31 @@ healthCheckStore.setHealthCheckDataRequestStatusReason = (status, reason) => {
   };
 
 healthCheckStore.getHealthCheckDataUpdateTimestamp = function() {
-  
-    // SAMPLE IMMERABLE RECORD .getIn METHOD USAGE...
-    // (NOT STRICTLY NECESSARY, AS WE CAN GET BY VANILLA JS DOT NOTAION)...
-    return this.getIn(
+    return healthCheckStore.getIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         Date.now()
       );
   };
 
 healthCheckStore.setHealthCheckDataUpdateTimestamp = function() {
-    return this.setIn(
+    return healthCheckStore.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         Date.now()
       );
   };
 
 healthCheckStore.resetHealthCheckDataUpdateTimestamp = function() {
-    return this.setIn(
+    return healthCheckStore.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         0
       );
   };
 
 // PREVENT REASSIGNMENT OR EXTENSION, OF THE INITIAL INSTANCE
-// (Object.seal is fine, too)
-// ALL SUBSEQUENT INSTANCES / DRAFTS RETURNED, ON UPDATE, ARE ALREADY NON-EXTENSIBLE...
+// (or, use Object.seal, depending on your use case)
+//
+// SUBSEQUENT INSTANCES / DRAFTS RETURNED ARE FROZEN,
+// WITH OR WITHOUT THIS...
 Object.freeze(healthCheckStore);
 ```
 

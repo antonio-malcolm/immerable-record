@@ -12,7 +12,7 @@
  * https://opensource.org/licenses/BSD-3-Clause
  */
 
-import { ImmerableRecord } from 'immerable-record';
+import ImmerableRecord from 'immerable-record';
 
 import RequestStatus from 'constant/RequestStatus';
 
@@ -27,11 +27,19 @@ class HealthCheckStore extends ImmerableRecord {
       healthCheckDataUpdateTimestamp: 0
     }, { historyLimit: 5 });
 
+    this.getHealthCheckData = this.getHealthCheckData.bind(this);
+    this.setHealthCheckData = this.setHealthCheckData.bind(this);
+
+    this.getHealthCheckDataRequestStatus = this.getHealthCheckDataRequestStatus.bind(this);
+    this.setHealthCheckDataRequestStatus = this.setHealthCheckDataRequestStatus.bind(this);
+
     Object.freeze(this);
   }
 
   getHealthCheckData() {
-    return this.healthCheckData;
+    return this.getIn(
+        [ 'healthCheckData' ]
+      );
   };
 
   setHealthCheckData(data) {
@@ -39,7 +47,9 @@ class HealthCheckStore extends ImmerableRecord {
   };
 
   getHealthCheckDataRequestStatus() {
-    return this.healthCheckDataRequestStatus;
+    return this.getIn(
+        [ 'healthCheckDataRequestStatus' ]
+      );
   };
 
   setHealthCheckDataRequestStatus(status) {
@@ -47,7 +57,9 @@ class HealthCheckStore extends ImmerableRecord {
   };
 
   getHealthCheckDataRequestStatusReason = () => {
-    return this.healthCheckDataRequestStatusReason;
+    return this.getIn(
+        [ 'healthCheckDataRequestStatusReason' ]
+      );
   };
 
   setHealthCheckDataRequestStatusReason = (status, reason) => {
@@ -57,21 +69,20 @@ class HealthCheckStore extends ImmerableRecord {
       );
   };
 
-  getHealthCheckDataUpdateTimestamp() {
+  getHealthCheckDataUpdateTimestamp = () => {
     return this.getIn(
-        [ 'healthCheckDataUpdateTimestamp' ],
-        Date.now()
+        [ 'healthCheckDataUpdateTimestamp' ]
       );
   }
 
-  setHealthCheckDataUpdateTimestamp() {
+  setHealthCheckDataUpdateTimestamp = () => {
     return this.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         Date.now()
       );
   }
 
-  resetHealthCheckDataUpdateTimestamp() {
+  resetHealthCheckDataUpdateTimestamp = () => {
     return this.setIn(
         [ 'healthCheckDataUpdateTimestamp' ],
         0
