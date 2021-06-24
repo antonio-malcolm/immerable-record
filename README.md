@@ -50,14 +50,14 @@ Immerable Record uses Immer as a peer dependency, so you will need to add both `
 "dependencies": {
 
   "immer": "^9.0.3",
-  "immerable-record": "^1.0.0",
+  "immerable-record": "^1.0.4",
 
 }
 ```
 
 Or:
 ```shell
-$ npm install --save immer@9.0.3 immerable-record@1.0.0
+$ npm install --save immer@9.0.3 immerable-record@1.0.4
 ```
 
 #### Class Extension
@@ -93,7 +93,7 @@ class HealthCheckStore extends ImmerableRecord {
     // PREVENT REASSIGNMENT OR EXTENSION, OF THE INITIAL INSTANCE
     // (or, use Object.seal, depending on your use case)
     //
-    // SUBSEQUENT INSTANCES / DRAFTS RETURNED ARE ALREADY NON-EXTENSIBLE,
+    // SUBSEQUENT INSTANCES / DRAFTS RETURNED ARE FROZEN,
     // WITH OR WITHOUT THIS...
     Object.freeze(this);
   }
