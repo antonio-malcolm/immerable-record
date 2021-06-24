@@ -2,7 +2,7 @@ Welcome, to Immerable Record!
 =============================
 !["NodeJS Version"](https://img.shields.io/badge/NodeJS-%5E14%2E17%2E0-43853d?style=for-the-badge&logo=nodedotjs)
  !["npm Version"](https://img.shields.io/badge/npm-%5E6%2E14%2E3-ea2039?style=for-the-badge&logo=npm)
- !["pnpm Version"](https://img.shields.io/badge/pnpm-%5E6%2E7%2E6-f69220?style=for-the-badge&logo=pnpm)
+ !["pnpm Version"](https://img.shields.io/badge/pnpm-%5E6%2E9%2E1-f69220?style=for-the-badge&logo=pnpm)
  !["Immer Version"](https://img.shields.io/badge/Immer-%5E9%2E0%2E3-00e7C3?style=for-the-badge&logo=immer)  
 !["Test Code Coverage"](https://img.shields.io/badge/Test%20Coverage-97%25-43c25f?style=for-the-badge)
  !["Test Status"](https://img.shields.io/badge/Test%20Status-All%20Pass%20(160)-43c25f?style=for-the-badge)
