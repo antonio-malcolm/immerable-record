@@ -4,6 +4,7 @@ server/srv/*
 build/
 test/cache/
 test/output/
+_tmp_*
 
 
 # NodeJS and Package Manager Files and Directories
@@ -11,7 +12,7 @@ npm-debug.log
 .pnpm-debug.log
 pnpm-debug.log
 node_modules/
-mochawesome-report/
+*.patch
 
 
 # Eclipse Project Files and Directories

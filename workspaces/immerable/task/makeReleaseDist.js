@@ -22,6 +22,10 @@ const Paths = require('../../../constant/Paths');
 const SimpleBuildTimeException = require(`${Paths.EXCEPTION_APP_ROOT_ABSOLUTE}/SimpleBuildTimeException`);
 
 const appIndexFileName = 'immerable.immerable-record.js';
+const projectAuthorsFileName = 'AUTHORS';
+const projectLicenseFileName = 'LICENSE';
+const projectReadmeFileName = 'README.md';
+
 const appIndexFileTemplatePathRelative = `template/js/${appIndexFileName}`;
 const buildDistDevDirPathRelative = 'build/dist/dev';
 const buildDistProdvDirPathRelative = 'build/dist/prod';
@@ -33,6 +37,10 @@ const appIndexFileTemplatePathAbsolute = `${workspacePathAbsolute}/${appIndexFil
 const buildDistDevDirPathAbsolute = `${workspacePathAbsolute}/${buildDistDevDirPathRelative}`;
 const buildDistProdvDirPathAbsolute = `${workspacePathAbsolute}/${buildDistProdvDirPathRelative}`;
 const buildDistReleaseDirPathAbsolute = `${workspacePathAbsolute}/${buildDistReleaseDirPathRelative}`;
+
+const projectAuthorsFilePathAbsolute = `${Paths.APP_ROOT}/${projectAuthorsFileName}`;
+const projectLicenseFilePathAbsolute = `${Paths.APP_ROOT}/${projectLicenseFileName}`;
+const projectReadmeFilePathAbsolute = `${Paths.APP_ROOT}/${projectReadmeFileName}`;
 
 if (!(fs.existsSync(buildDistDevDirPathAbsolute) && fs.statSync(buildDistDevDirPathAbsolute).isDirectory())) {
   throw new SimpleBuildTimeException(
@@ -51,6 +59,27 @@ if (!(fs.existsSync(buildDistProdvDirPathAbsolute) && fs.statSync(buildDistProdv
 if (!(fs.existsSync(appIndexFileTemplatePathAbsolute) && fs.statSync(appIndexFileTemplatePathAbsolute).isFile())) {
   throw new SimpleBuildTimeException(
       `The app index file, at: ${appIndexFileTemplatePathRelative}, is missing.`,
+      './workspaces/immerable/task/makeReleaseDist.js'
+    );
+}
+
+if (!(fs.existsSync(projectAuthorsFilePathAbsolute) && fs.statSync(projectAuthorsFilePathAbsolute).isFile())) {
+  throw new SimpleBuildTimeException(
+      `The ${projectAuthorsFileName} file, at: ${projectAuthorsFilePathAbsolute}, is missing.`,
+      './workspaces/immerable/task/makeReleaseDist.js'
+    );
+}
+
+if (!(fs.existsSync(projectLicenseFilePathAbsolute) && fs.statSync(projectLicenseFilePathAbsolute).isFile())) {
+  throw new SimpleBuildTimeException(
+      `The ${projectLicenseFileName} file, at: ${projectLicenseFilePathAbsolute}, is missing.`,
+      './workspaces/immerable/task/makeReleaseDist.js'
+    );
+}
+
+if (!(fs.existsSync(projectReadmeFilePathAbsolute) && fs.statSync(projectReadmeFilePathAbsolute).isFile())) {
+  throw new SimpleBuildTimeException(
+      `The ${projectReadmeFileName} file, at: ${projectReadmeFilePathAbsolute}, is missing.`,
       './workspaces/immerable/task/makeReleaseDist.js'
     );
 }
@@ -96,6 +125,9 @@ try {
   copyDirectoryTree(buildDistDevDirPathAbsolute, buildDistReleaseDirPathAbsolute);
   copyDirectoryTree(buildDistProdvDirPathAbsolute, buildDistReleaseDirPathAbsolute);
   fs.copyFileSync(appIndexFileTemplatePathAbsolute, `${buildDistReleaseDirPathAbsolute}/${appIndexFileName}`);
+  fs.copyFileSync(projectAuthorsFilePathAbsolute, `${workspacePathAbsolute}/${projectAuthorsFileName}`);
+  fs.copyFileSync(projectLicenseFilePathAbsolute, `${workspacePathAbsolute}/${projectLicenseFileName}`);
+  fs.copyFileSync(projectReadmeFilePathAbsolute, `${workspacePathAbsolute}/${projectReadmeFileName}`);
 } catch (err) {
   throw new SimpleBuildTimeException(
       'Failed to create the release distribution.',

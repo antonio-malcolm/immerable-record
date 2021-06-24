@@ -9,7 +9,7 @@
   "engines": {
     "node": "^14.17.1",
     "npm": "^6.14.13",
-    "pnpm": "^6.7.6"
+    "pnpm": "^6.9.1"
   },
   "dependencies-comments": {
     "@babel/runtime": "used in combination with devDependency @babel/plugin-transform-runtime, polyfilling built-ins in source code, instead of using globals"
@@ -24,7 +24,6 @@
     "dayjs": "^1.10.4",
     "immer": "^9.0.2",
     "immerable-record": "file:workspaces/immerable/",
-    "pnpm": "^6.7.6",
     "prop-types": "^15.7.2",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
