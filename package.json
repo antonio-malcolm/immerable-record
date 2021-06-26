@@ -1,6 +1,6 @@
 {
   "name": "immerable-record",
-  "version": "1.0.9",
+  "version": "1.0.9-1",
   "description": "Immerable Record is an immutable record data structure API, which uses pure, vanilla JavaScript objects for deep nesting",
   "engines-comments": {
     "node": "using nvm to install and manage node versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm  install --lts",
@@ -118,13 +118,6 @@
     "webpack-dashboard": "^3.3.1",
     "webpack-dev-middleware": "5.0.0",
     "webpack-hot-middleware": "^2.25.0"
-  },
-  "scripts-comments": {
-    "build:[ WORKSPACE (immerable, react or preact, - react default, unless ENVIRON is prod or prod-dev, then preact default ]:[ ENVIRON (dev, prod, or prod-dev, dev default) ]": "Updates packages, builds and deploys bundles, to perspective (project-react and / or project-preact) /build directory, define SHOULD_GENERATE_BUNDLE_METRICS_DISPLAY to generate bundleSizesMap.html",
-    "clean:[ WORKSPACE (all, react, preact, or test - all default ]:[ all, build, packages, packages-lock - all default ]": "Clean build directories, and / or node_modules, and / or test-output, or all, or packages-lock files",
-    "start:[ WORKSPACE (react or preact - react default, unless ENVIRON is prod-dev, then preact default ]:[ ENVIRON (dev or prod-dev, dev default) ]:[ HEAT (hot or cold, cold default - used ONLY with dev or prod-dev ENVIRON) ]:[ SERVER_IS_NETWORK_ACCESSIBLE (true or false (true makes accessible via network ip address), false default) ]": "Updates packages, starts local dev server (Hapi), which serves both in-memory, hot-reloading dev bundles (at http://[LOCAL-OR NETWORK-ADDRESS]/dev), as well as deployed bundles (at http://[LOCAL-OR NETWORK-ADDRESS]/build)",
-    "checkForNonEs5Dependencies": "Checks project root and subrepo node_modules directories, for any dependencies which are not ES 5 compliant, lists them, and provides RegExp patterns, for adding them, to Babel transpilation (replace the current pattern, in the appropriate config/babel/excludes file, with the output pattern)",
-    "list:tasks": "Lists tasks available"
   },
   "scripts": {
     "list:tasks": "node task/runTask.js list",
