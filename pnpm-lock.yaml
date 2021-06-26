@@ -130,7 +130,7 @@ importers:
       babel-watch: 7.4.1_@babel+core@7.14.6
       chai: 4.3.4
       colors: 1.4.0
-      copy-webpack-plugin: 9.0.0_webpack@5.40.0
+      copy-webpack-plugin: 9.0.1_webpack@5.40.0
       cross-env: 7.0.3
       css-loader: 5.2.6_webpack@5.40.0
       enzyme: 3.11.0
@@ -162,7 +162,7 @@ importers:
       karma-phantomjs-launcher: 1.0.4_karma@6.3.4
       karma-sourcemap-loader: 0.3.8
       karma-webpack: 5.0.0_webpack@5.40.0
-      mini-css-extract-plugin: 1.6.0_webpack@5.40.0
+      mini-css-extract-plugin: 1.6.1_webpack@5.40.0
       minimist: 1.2.5
       mocha: 9.0.1
       mochawesome: 6.2.2_mocha@9.0.1
@@ -2593,7 +2593,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001239
+      caniuse-lite: 1.0.30001240
       colorette: 1.2.2
       normalize-range: 0.1.2
       num2fraction: 1.2.2
@@ -2857,9 +2857,9 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001239
+      caniuse-lite: 1.0.30001240
       colorette: 1.2.2
-      electron-to-chromium: 1.3.756
+      electron-to-chromium: 1.3.759
       escalade: 3.1.1
       node-releases: 1.1.73
     dev: true
@@ -2932,8 +2932,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite/1.0.30001239:
-    resolution: {integrity: sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ==}
+  /caniuse-lite/1.0.30001240:
+    resolution: {integrity: sha512-nb8mDzfMdxBDN7ZKx8chWafAdBp5DAAlpWvNyUGe5tcDWd838zpzDN3Rah9cjCqhfOKkrvx40G2SDtP0qiWX/w==}
     dev: true
 
   /caseless/0.12.0:
@@ -3214,8 +3214,8 @@ packages:
     dev: true
     optional: true
 
-  /copy-webpack-plugin/9.0.0_webpack@5.40.0:
-    resolution: {integrity: sha512-k8UB2jLIb1Jip2nZbCz83T/XfhfjX6mB1yLJNYKrpYi7FQimfOoFv/0//iT6HV1K8FwUB5yUbCcnpLebJXJTug==}
+  /copy-webpack-plugin/9.0.1_webpack@5.40.0:
+    resolution: {integrity: sha512-14gHKKdYIxF84jCEgPgYXCPpldbwpxxLbCmA7LReY7gvbaT555DgeBWBgBZM116tv/fO6RRJrsivBqRyRlukhw==}
     engines: {node: '>= 12.13.0'}
     peerDependencies:
       webpack: ^5.1.0
@@ -3226,7 +3226,7 @@ packages:
       normalize-path: 3.0.0
       p-limit: 3.1.0
       schema-utils: 3.0.0
-      serialize-javascript: 5.0.1
+      serialize-javascript: 6.0.0
       webpack: 5.40.0_webpack-cli@4.7.2
     dev: true
 
@@ -3400,7 +3400,7 @@ packages:
     dependencies:
       abab: 2.0.5
       whatwg-mimetype: 2.3.0
-      whatwg-url: 8.6.0
+      whatwg-url: 8.7.0
     dev: true
 
   /date-format/2.1.0:
@@ -3468,8 +3468,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /decimal.js/10.3.0:
-    resolution: {integrity: sha512-MrQRs2gyD//7NeHi9TtsfClkf+cFAewDz+PZHR8ILKglLmBMyVX3ymQ+oeznE3tjrS7beTN+6JXb2C3JDHm7ug==}
+  /decimal.js/10.3.1:
+    resolution: {integrity: sha512-V0pfhfr8suzyPGOx3nmq4aHqabehUZn6Ch9kyFpV79TGDTWFmHqUqXdabR7QHqxzrYolF4+tVmJhUG4OURg5dQ==}
     dev: true
 
   /decode-uri-component/0.2.0:
@@ -3653,8 +3653,8 @@ packages:
     resolution: {integrity: sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=}
     dev: true
 
-  /electron-to-chromium/1.3.756:
-    resolution: {integrity: sha512-WsmJym1TMeHVndjPjczTFbnRR/c4sbzg8fBFtuhlb2Sru3i/S1VGpzDSrv/It8ctMU2bj8G7g7/O3FzYMGw6eA==}
+  /electron-to-chromium/1.3.759:
+    resolution: {integrity: sha512-nM76xH0t2FBH5iMEZDVc3S/qbdKjGH7TThezxC8k1Q7w7WHvIAyJh8lAe2UamGfdRqBTjHfPDn82LJ0ksCiB9g==}
     dev: true
 
   /emoji-regex/7.0.3:
@@ -3983,7 +3983,7 @@ packages:
       '@mdn/browser-compat-data': 2.0.7
       ast-metadata-inferer: 0.4.0
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001239
+      caniuse-lite: 1.0.30001240
       core-js: 3.15.1
       eslint: 7.29.0
       find-up: 4.1.0
@@ -5537,7 +5537,7 @@ packages:
       cssom: 0.4.4
       cssstyle: 2.3.0
       data-urls: 2.0.0
-      decimal.js: 10.3.0
+      decimal.js: 10.3.1
       domexception: 2.0.1
       escodegen: 2.0.0
       form-data: 3.0.1
@@ -5555,7 +5555,7 @@ packages:
       webidl-conversions: 6.1.0
       whatwg-encoding: 1.0.5
       whatwg-mimetype: 2.3.0
-      whatwg-url: 8.6.0
+      whatwg-url: 8.7.0
       ws: 7.5.0
       xml-name-validator: 3.0.0
     transitivePeerDependencies:
@@ -6161,8 +6161,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /mini-css-extract-plugin/1.6.0_webpack@5.40.0:
-    resolution: {integrity: sha512-nPFKI7NSy6uONUo9yn2hIfb9vyYvkFu95qki0e21DQ9uaqNKDP15DGpK0KnV6wDroWxPHtExrdEwx/yDQ8nVRw==}
+  /mini-css-extract-plugin/1.6.1_webpack@5.40.0:
+    resolution: {integrity: sha512-2DXoAaHJ/jIlbVz5yX8eCrRFNfxjH4Lx9LlEetbub1BY6AVa9kl+Ag2/c570w+Wqe0InNJA6POmlcg2Iuq9iTA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^4.4.0 || ^5.0.0
@@ -7159,7 +7159,7 @@ packages:
     dependencies:
       autoprefixer: 9.8.6
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001239
+      caniuse-lite: 1.0.30001240
       css-blank-pseudo: 0.1.4
       css-has-pseudo: 0.10.0
       css-prefers-color-scheme: 3.1.1
@@ -7932,6 +7932,12 @@ packages:
       randombytes: 2.1.0
     dev: true
 
+  /serialize-javascript/6.0.0:
+    resolution: {integrity: sha512-Qr3TosvguFt8ePWqsvRfrKyQXIiW+nGbYpy8XK24NQHE83caxWt+mIymTT19DGFbNWNLfEwsrkSmN64lVWB9ag==}
+    dependencies:
+      randombytes: 2.1.0
+    dev: true
+
   /set-blocking/2.0.0:
     resolution: {integrity: sha1-BF+XgtARrppoA93TgrJDkrPYkPc=}
     dev: true
@@ -8461,8 +8467,8 @@ packages:
     resolution: {integrity: sha512-di2Hd1DB2Zfw6StGv861JoAF5h/uQVu/QJp2g8KVbtfKnoHdBQl5M32YWq6mnSYBQ1vFFrns5B1haWJL7rKaOQ==}
     dev: true
 
-  /terser-webpack-plugin/5.1.3_webpack@5.40.0:
-    resolution: {integrity: sha512-cxGbMqr6+A2hrIB5ehFIF+F/iST5ZOxvOmy9zih9ySbP1C2oEWQSOUS+2SNBTjzx5xLKO4xnod9eywdfq1Nb9A==}
+  /terser-webpack-plugin/5.1.4_webpack@5.40.0:
+    resolution: {integrity: sha512-C2WkFwstHDhVEmsmlCxrXUtVklS+Ir1A7twrYzrDrQQOIMOaVAYykaoo/Aq1K0QRkMoY2hhvDQY1cm4jnIMFwA==}
     engines: {node: '>= 10.13.0'}
     peerDependencies:
       webpack: ^5.1.0
@@ -8470,7 +8476,7 @@ packages:
       jest-worker: 27.0.2
       p-limit: 3.1.0
       schema-utils: 3.0.0
-      serialize-javascript: 5.0.1
+      serialize-javascript: 6.0.0
       source-map: 0.6.1
       terser: 5.7.0
       webpack: 5.40.0_webpack-cli@4.7.2
@@ -9047,7 +9053,7 @@ packages:
       neo-async: 2.6.2
       schema-utils: 3.0.0
       tapable: 2.2.0
-      terser-webpack-plugin: 5.1.3_webpack@5.40.0
+      terser-webpack-plugin: 5.1.4_webpack@5.40.0
       watchpack: 2.2.0
       webpack-cli: 4.7.2_0b92a2fcecd757d4454a55bdcd31cd7f
       webpack-sources: 2.3.0
@@ -9063,8 +9069,8 @@ packages:
     resolution: {integrity: sha512-M4yMwr6mAnQz76TbJm914+gPpB/nCwvZbJU28cUD6dR004SAxDLOOSUaB1JDRqLtaOV/vi0IC5lEAGFgrjGv/g==}
     dev: true
 
-  /whatwg-url/8.6.0:
-    resolution: {integrity: sha512-os0KkeeqUOl7ccdDT1qqUcS4KH4tcBTSKK5Nl5WKb2lyxInIZ/CpjkqKa1Ss12mjfdcRX9mHmPPs7/SxG1Hbdw==}
+  /whatwg-url/8.7.0:
+    resolution: {integrity: sha512-gAojqb/m9Q8a5IV96E3fHJM70AzCkgt4uXYX2O7EmuyOnLrViCQlsEBmF9UQIu3/aeAIp2U17rtbpZWNntQqdg==}
     engines: {node: '>=10'}
     dependencies:
       lodash: 4.17.21
@@ -9241,6 +9247,11 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /yargs-parser/20.2.9:
+    resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
+    engines: {node: '>=10'}
+    dev: true
+
   /yargs-unparser/2.0.0:
     resolution: {integrity: sha512-7pRTIA9Qc1caZ0bZ6RYRGbHJthJWuakf+WmHK0rVeLkNrrGhfoabBNdue6kdINI6r4if7ocq9aD/n7xwKOdzOA==}
     engines: {node: '>=10'}
@@ -9293,7 +9304,7 @@ packages:
       require-directory: 2.1.1
       string-width: 4.2.2
       y18n: 5.0.8
-      yargs-parser: 20.2.4
+      yargs-parser: 20.2.9
     dev: true
 
   /yauzl/2.10.0:
