@@ -16,19 +16,19 @@ so you are always working with vanilla JavaScript objects, in your immutable dat
 ## Contents
 [About](#about)  
 [Quickstart](#quickstart)
-  -  [Requirements](#requirements)
-  -  [Class Extension](#class-extension)  
-  -  [Object Extension](#object-extension)
-  -  [Accessing Properties](#accessing-properties)
+  * [Requirements](#requirements)
+  * [Class Extension](#class-extension)  
+  * [Object Extension](#object-extension)
+  * [Accessing Properties](#accessing-properties)
 
 [Methods](#methods)  
 [History API](#methods)  
 [Advanced Topics](#advanced-topics)
-  -  [Building From Source](#building-from-source)
-  -  [Running Tests](#running-tests)
-  -  [Smoke Testing](#smoke-testing)
-  -  [Cleanup](#cleanup)
-  -  [Project Structure](#project-structure)
+  * [Building From Source](#building-from-source)
+  * [Running Tests](#running-tests)
+  * [Smoke Testing](#smoke-testing)
+  * [Cleanup](#cleanup)
+  * [Project Structure](#project-structure)
 
 [Author And License Info](#author-and-license-info)  
 [Support This Project](#support-this-project)
@@ -44,8 +44,8 @@ Immerable Record also provides a history API, which enables you to easily traver
 ## Quickstart
 
 #### Requirements
-The only requirement for Immerable Record is a dependency of `"immer": "^9.0.3"`.  
-Immerable Record uses Immer as a peer dependency, so you will need to add both `immer` and `immerable-record` to your `package.json` dependencies:
+The only requirement for Immerable Record is a dependency of: `"immer": "^9.0.3"`.  
+Immerable Record uses Immer as a peer dependency, so you will need to install and / or add both `immer` and `immerable-record` to your project's `package.json` dependencies:
 ```JSON
 "dependencies": {
 
@@ -286,11 +286,11 @@ _Note: all available methods may be wrapped by extending classes or objects, as 
 
 Methods which return drafts (CRUD) can be chained.
 
-### `.getIn(Array(keys))`
+### `.getIn(Array<String>[ keys ])`
 Returns a value from the field at key location, nested according to the provided keys arg. Each key traverses a level deeper, into the Record data structure.
 
 __Args (1):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.
 
 __Returns:__  
 The value associated to the last key in the keys arg, after traversing into the Record data structure, according to the previous keys.
@@ -308,12 +308,12 @@ __Example (given the following data structure):__
 `.getIn([ 'parentKey', 'childKey', 'nextKey' ])` would return the value `'I am a nested value!'`
 
 
-### `.setIn(Array(keys), ? value)`
+### `.setIn(Array<String>[ keys ], ? value)`
 Sets the specified value on the field at key location. nested according to the provided keys arg. Each key traverses a level deeper, into the Record data structure.
 
 __Args (2):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-value (?): the value to be assigned to the field associated to the last key in the keys arg.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* value (`?`): the value to be assigned to the field associated to the last key in the keys arg.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated field value.
@@ -331,11 +331,11 @@ __Example (given the following data structure):__
 `.setIn([ 'parentKey', 'childKey', 'nextKey' ], 2000)` would set `parentKey.childKey.nextKey = 2000`, then return a new, immutable copy of the Record.
 
 
-### `.deleteIn(Array(keys))`
+### `.deleteIn(Array<String>[ keys ])`
 Deletes the field at key location, nested according to the provided keys arg. Each key traverses a level deeper, into the Record data structure.
 
 __Args (1):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.
 
 __Returns:__  
 A new, immutable copy of the Record, with the field at the keys location removed.
@@ -352,12 +352,12 @@ __Example (given the following data structure):__
 ```  
 `.deleteIn([ 'parentKey', 'childKey', 'nextKey' ])` would remove field `nextKey` from the structure, then return a new copy of the Record, with data structure: `parentKey.childKey`
 
-### `.getInArrIdx(Array(keys), Number idx)`
+### `.getInArrIdx(Array<String>[ keys ], Number idx)`
 Returns the value at the array index, from the array field at key location, nested according to the provided keys arg. Each key traverses a level deeper, into the Record data structure.
 
 __Args (2):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-idx (Number): The array index at which the returned value is located, in the array field associated to the last key in the keys arg.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* idx (`Number`, required, returns `undefined`, if absent or out of bounds): The array index at which the returned value is located, in the array field associated to the last key in the keys arg.
 
 __Returns:__  
 The value located at the index of the array field associated to the last key in the keys arg, after traversing into the Record data structure, according to the previous keys.
@@ -375,13 +375,13 @@ __Example (given the following data structure):__
 `.getInArrIdx([ 'parentKey', 'childKey', 'nextKey' ], 2)` would return the value `'some value'`
 
 
-### `.setInArrIdx(Array(keys), Number idx, ? value)`
+### `.setInArrIdx(Array<String>[ keys ], Number idx, ? value)`
 Sets the specified value, at the array index, in the array field at key location. nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
 __Args (3):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-idx (Number): The array index at which the value is to be set, in the array field associated to the last key in the keys arg.  
-value (?): the value to be assigned at the array index of the array field associated to the last key in the keys arg.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* idx (`Number`, required, returns without error if absent or less than `0`, adds to end (last) of array, if greater than array length): The array index at which the value is to be set, in the array field associated to the last key in the keys arg.  
+* value (`?`): the value to be assigned at the array index of the array field associated to the last key in the keys arg.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the new value added at the specified index.
@@ -399,12 +399,12 @@ __Example (given the following data structure):__
 `.setInArrIdx([ 'parentKey', 'childKey', 'nextKey' ], 2, 'a new value')` would set `parentKey.childKey.nextKey[2] = 'new value'` (previously, `'old value'`), then return a new, immutable copy of the Record.
 
 
-### `.deleteInArrIdx(Array(keys))`
+### `.deleteInArrIdx(Array<String>[ keys ], Number idx)`
 Removes the value, at the array index field at key location, nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
-__Args (1):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-idx (Number): The array index from which the value is to be removed, from the array field associated to the last key in the keys arg.
+__Args (2):__  
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* idx (`Number`, required, returns without error, if absent or out of bounds): The array index from which the value is to be removed, from the array field associated to the last key in the keys arg.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the value at the specified index removed.
@@ -421,12 +421,12 @@ __Example (given the following data structure):__
 `.deleteInArrIdx([ 'parentKey', 'childKey', 'nextKey' ], 2)` would remove `old value` from the structure, leaving `parentKey.childKey.nextKey = [ 1, 2, 'foobar' ]`, then return a new copy of the Record.
 
 
-### `.pushInArr(Array(keys), ? value)`
+### `.pushInArr(Array<String>[ keys ], ? value)`
 Adds the specified value to the end (last) of the array - the array field at key location. nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
 __Args (2):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-value (?): the value to be added top the end (last) of the array - the array field associated to the last key in the keys arg.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* value (`?`): the value to be added top the end (last) of the array - the array field associated to the last key in the keys arg.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the new value added to the end (last).
@@ -444,11 +444,11 @@ __Example (given the following data structure):__
 `.pushInArr([ 'parentKey', 'childKey', 'nextKey' ], 'a new value')` would add `'a new value'`, resulting in `parentKey.childKey.nextKey = [ 1, 2, 'some value', 'another value', 'a new value' ]` , then return a new, immutable copy of the Record.
 
 
-### `.popInArr(Array(keys))`
+### `.popInArr(Array<String>[ keys ])`
 Removes the specified value from the end (last) of the array - the array field at key location. nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
 __Args (1):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the end (last) value removed.
@@ -466,12 +466,12 @@ __Example (given the following data structure):__
 `.popInArr([ 'parentKey', 'childKey', 'nextKey' ])` would remove `'another value'`, resulting in `parentKey.childKey.nextKey = [ 1, 2, 'some value' ]` , then return a new, immutable copy of the Record.
 
 
-### `.unshiftInArr(Array(keys), ? value)`
+### `.unshiftInArr(Array<String>[ keys ], ? value)`
 Adds the specified value to the beginning (first) of the array - the array field at key location. nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
 __Args (2):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.  
-value (?): the value to be added top the beginning (first) of the array - the array field associated to the last key in the keys arg.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.  
+* value (`?`): the value to be added top the beginning (first) of the array - the array field associated to the last key in the keys arg.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the new value added to the beginning (first).
@@ -486,14 +486,14 @@ __Example (given the following data structure):__
   }
 }
 ```  
-`.pushInArr([ 'parentKey', 'childKey', 'nextKey' ], 'a new value')` would add `'a new value'`, resulting in `parentKey.childKey.nextKey = [ 'a new value', 1, 2, 'some value', 'another value' ]` , then return a new, immutable copy of the Record.
+`.unshiftInArr([ 'parentKey', 'childKey', 'nextKey' ], 'a new value')` would add `'a new value'`, resulting in `parentKey.childKey.nextKey = [ 'a new value', 1, 2, 'some value', 'another value' ]` , then return a new, immutable copy of the Record.
 
 
-### `.shiftInArr(Array(keys))`
+### `.shiftInArr(Array<String>[ keys ])`
 Removes the specified value from the beginning (first) of the array - the array field at key location. nested according to the provided keys array. Each key traverses a level deeper, into the Record data structure.
 
 __Args (1):__  
-keys (Array<String>): An array of keys, each of which traverses a level deeper, into the Record data structure.
+* keys (`Array<String>`, required): An array of keys, each of which traverses a level deeper, into the Record data structure.
 
 __Returns:__  
 A new, immutable copy of the Record, with the updated array field, with the beginning (first) value removed.
