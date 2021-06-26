@@ -37,7 +37,7 @@ so you are always working with vanilla JavaScript objects, in your immutable dat
 
 All instances returned by Immerable Record CRUD methods, (and wrapper methods defined on the extending class or object), are immutable Immer drafts (as they are returned from the Immer `.produce` method).
 
-All properties of a draft returned by an Immerable Record can be accessed using vanilla JavaScript dot or square bracket notation. As with an ImmutableJS Record, any CRUD actions preformed must be done via built-in methods, which are mostly on parity, with their ImuutableJS counterparts, such as `.getIn` and `.setIn` (Immerable Record has a few additionals, such as `.getInArrIdx` and `.setInArrIdx`, for drilling into arrays).
+All properties of a draft returned by an Immerable Record can be accessed using vanilla JavaScript dot or square bracket notation. As with an ImmutableJS Record, any CRUD actions preformed must be done via built-in methods, which are mostly on parity, with their ImmutableJS counterparts, such as `.getIn` and `.setIn` (Immerable Record has a few additionals, such as `.getInArrIdx` and `.setInArrIdx`, for drilling into arrays).
 
 Immerable Record also provides a history API, which enables you to easily traverse, examine, and use previous versions of your object. Records, from history, are also immutable Immer drafts.
 
@@ -50,14 +50,14 @@ Immerable Record uses Immer as a peer dependency, so you will need to install an
 "dependencies": {
 
   "immer": "^9.0.3",
-  "immerable-record": "^1.0.9",
+  "immerable-record": "^1.0.10",
 
 }
 ```
 
 Or:
 ```shell
-$ npm install --save immer@9.0.3 immerable-record@1.0.9
+$ npm install --save immer@9.0.3 immerable-record@1.0.10
 ```
 
 #### Class Extension
@@ -668,15 +668,15 @@ $ pnpm run clean:test
 Below is a general overview of the project structure, i.e., "where to find the relevant things".
 
 Immerable Record source code:  
-[workspaces/immerable/src/immerable/record/](workspaces/immerable/src/immerable/record/)
+[workspaces/immerable/src/immerable/record/](/workspaces/immerable/src/immerable/record/)
 
 Immerable Record build output (after build, you will find child directories dist/[dev, prod, release]):  
-[workspaces/immerable/build/](workspaces/immerable/build/)
+[workspaces/immerable/build/](/workspaces/immerable/build/)
 
 Immerable Record test modules:
-[test/spec/immerable/record/]([test/spec/immerable/record/])
+[test/spec/immerable/record/]([/test/spec/immerable/record/])
 
-Test output (genrated after running tests)
+Test output (generated after running tests)
 `test/output/`
 
 ## Author And License Info
@@ -696,5 +696,5 @@ This software is built with the greatest care and attention to detail, and thoro
 Any support is greatly appreciated!
 
 [!["Donate: Buy Me A Coffee"](https://img.shields.io/badge/Donate-Buy%20Me%20A%20Coffee-a1644c?style=for-the-badge&logo=buymeacoffee)](https://buymeacoffee.com/antoniomalcolm)
- [!["Donate: LiberaPay"](https://img.shields.io/badge/Donate-LiberaPay-f6c915?style=for-the-badge&logo=liberapay)](https://www.buymeacoffee.com/antoniomalcolm)
+ [!["Donate: LiberaPay"](https://img.shields.io/badge/Donate-LiberaPay-f6c915?style=for-the-badge&logo=liberapay)](https://liberapay.com/antonio-malcolm)
  [!["Donate: PayPal"](https://img.shields.io/badge/Donate-PayPal-0070ba?style=for-the-badge&logo=paypal)](https://paypal.me/antoniomalcolm)
