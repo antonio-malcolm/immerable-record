@@ -610,8 +610,7 @@ $ pnpm run test:immerable
 ```
 
 Aside from test console output, test reports are generated, for both results and coverage, which are accessible from your web browser.  
-After tests have been run, start the projects built-in server, and navigate to the following local URLs, in your web browser:
-To clean the immerable build directory:
+After tests have been run, start the projects built-in server, and navigate to the following local URLs, in your web browser:  
 ```shell
 $ pnpm run start
 ```
