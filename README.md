@@ -574,7 +574,7 @@ pnpm: v6.9.1
 To ensure you are using the current, correct versions, refer to the engines block, in [package.json](package.json) 
 The author of this project uses [nvm](https://github.com/nvm-sh/nvm), to install and switch between NodeJS and npm versions, and doing so is highly recommended.
 
-This project uses pnpm, to manage dependencies and workspaces, and it is also used to execute tasks, within the task maanagement modules.  
+This project uses pnpm, to manage dependencies and workspaces, and it is also used to execute tasks, within the task management modules.  
 To install pnpm (current project version):
 ```shell
 $ npm install -g pnpm@6.9.1
@@ -610,8 +610,7 @@ $ pnpm run test:immerable
 ```
 
 Aside from test console output, test reports are generated, for both results and coverage, which are accessible from your web browser.  
-After tests have been run, start the projects built-in server, and navigate to the following local URLs, in your web browser:
-To clean the immerable build directory:
+After tests have been run, start the projects built-in server, and navigate to the following local URLs, in your web browser:  
 ```shell
 $ pnpm run start
 ```
