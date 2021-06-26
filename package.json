@@ -1,6 +1,6 @@
 {
   "name": "immerable-record",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Immerable Record is an immutable record data structure API, which uses pure, vanilla JavaScript objects for deep nesting",
   "engines-comments": {
     "node": "using nvm to install and manage node versions (most recent stable) (https://github.com/nvm-sh/nvm): $ nvm  install --lts",
