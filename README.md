@@ -50,14 +50,14 @@ Immerable Record uses Immer as a peer dependency, so you will need to install an
 "dependencies": {
 
   "immer": "^9.0.3",
-  "immerable-record": "^1.0.10",
+  "immerable-record": "^1.0.13",
 
 }
 ```
 
 Or:
 ```shell
-$ npm install --save immer@9.0.3 immerable-record@1.0.10
+$ npm install --save immer@9.0.3 immerable-record@1.0.13
 ```
 
 #### Class Extension
